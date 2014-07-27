@@ -46,6 +46,21 @@ class SwiftDocParser {
         return results
     }
 
+    func subclasses() -> [String] {
+        let matches = document?.nodesMatchingSelector(".subclass .code-voice a")
+        var results = [String]()
+        if let elements = matches as? [AnyObject] {
+            for element in elements {
+                if let textContent = element.textContent {
+                    if !textContent.isEmpty {
+                        results += textContent
+                    }
+                }
+            }
+        }
+        return results
+    }
+
     func enumValues() -> [String] {
         let matches = document?.nodesMatchingSelector(".constant .Swift .code-voice")
         var results = [String]()

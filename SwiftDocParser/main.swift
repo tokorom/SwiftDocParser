@@ -27,6 +27,13 @@ while nil != filePath {
                 println(keyword);
             }
         }
+        let subclasses = docParser.subclasses()
+        for keyword in subclasses {
+            if !sets.containsObject(keyword) {
+                sets.addObject(keyword)
+                println(keyword);
+            }
+        }
         let enumValues = docParser.enumValues()
         for keyword in enumValues {
             if !sets.containsObject(keyword) {
